@@ -1,21 +1,21 @@
 export default function decorate(block) {
-const row = block.querySelector(':scope > div');
+  const row = block.querySelector(':scope > div');
 
-if (!row) return;
+  if (!row) return;
 
-const imageWrapper = row.children[0];
-const contentWrapper = row.children[1];
+  const imageWrapper = row.children[0];
+  const contentWrapper = row.children[1];
 
-if (imageWrapper) {
-imageWrapper.classList.add('banner-image');
-}
+  if (imageWrapper) {
+    imageWrapper.classList.add('banner-image');
+  }
 
-if (contentWrapper) {
-contentWrapper.classList.add('banner-content');
-}
+  if (contentWrapper) {
+    contentWrapper.classList.add('banner-content');
+  }
 
-const cta = contentWrapper?.querySelector('a');
-if (cta) {
-cta.classList.add('banner-btn');
-}
+  const cta = contentWrapper?.querySelector('a');
+  if (cta) {
+    cta.classList.add('banner-btn');
+  }
 }

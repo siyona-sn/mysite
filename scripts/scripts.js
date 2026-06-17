@@ -127,6 +127,25 @@ export function decorateMain(main) {
 }
 
 /**
+* Dynamically loads a custom 404 fragment when a 404 error occurs.
+* @param {Element} main The main element of the page
+*/
+function loadErrorPage(main) {
+  if (window.errorCode === '404') {
+    const fragmentPath = '/fragments/404'; // Path to your da.live 404 fragment
+    const fragmentLink = document.createElement('a');
+    fragmentLink.href = fragmentPath;
+    fragmentLink.textContent = fragmentPath;
+    // Build the fragment block dynamically
+    const fragment = buildBlock('fragment', [[fragmentLink]]);
+    const section = main.querySelector('.section');
+    if (section) {
+      section.replaceChildren(fragment);
+    }
+  }
+}
+
+/**
  * Loads everything needed to get to LCP.
  * @param {Element} doc The container element
  */
@@ -135,7 +154,7 @@ async function loadEager(doc) {
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
-    if (window.isErrorPage) {     loadErrorPage(main);   }
+    if (window.isErrorPage) { loadErrorPage(main); }
     decorateMain(main);
     document.body.classList.add('appear');
     await loadSection(main.querySelector('.section'), waitForFirstImage);
@@ -185,25 +204,6 @@ async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
-}
-
-/**
-* Dynamically loads a custom 404 fragment when a 404 error occurs.
-* @param {Element} main The main element of the page
-*/
-function loadErrorPage(main) {
-  if (window.errorCode === '404') {
-    const fragmentPath = '/fragments/404'; // Path to your da.live 404 fragment
-    const fragmentLink = document.createElement('a');
-    fragmentLink.href = fragmentPath;
-    fragmentLink.textContent = fragmentPath;
-    // Build the fragment block dynamically
-    const fragment = buildBlock('fragment', [[fragmentLink]]);
-    const section = main.querySelector('.section');
-    if (section) {
-      section.replaceChildren(fragment);
-    }
-  }
 }
 
 loadPage();
