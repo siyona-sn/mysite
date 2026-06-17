@@ -9,7 +9,6 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-
 :root {
   /* colors */
   --background-color: white;
@@ -319,7 +318,7 @@ main > .section:first-of-type {
 /* section metadata */
 main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
+  background-color: grey;
   margin: 0;
   padding: 40px 0;
 }
