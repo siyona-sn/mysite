@@ -163,8 +163,9 @@ export default async function decorate(block) {
     dropdownItems.style.display = 'none';
 
     langTrigger.addEventListener('click', () => {
-      dropdownItems.style.display =
-        dropdownItems.style.display === 'none' ? 'block' : 'none';
+      dropdownItems.style.display = dropdownItems.style.display === 'none'
+        ? 'block'
+        : 'none';
     });
   }
 

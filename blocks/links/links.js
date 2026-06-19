@@ -58,7 +58,6 @@ export default async function decorate(block) {
       block.appendChild(table);
     });
   } catch (error) {
-    console.error('Failed to load spreadsheet', error);
     block.innerHTML = 'Failed to load data.';
   }
 }
