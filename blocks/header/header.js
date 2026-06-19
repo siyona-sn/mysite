@@ -124,7 +124,7 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['brand', 'sections', 'tools'];
+  const classes = ['brand', 'sections', 'tools', 'dropdown-items'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
@@ -148,6 +148,23 @@ export default async function decorate(block) {
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         }
       });
+    });
+  }
+  const dropdownItems = nav.querySelector('.nav-dropdown-items');
+  const navTools = nav.querySelector('.nav-tools');
+
+  if (dropdownItems && navTools) {
+    const langTrigger = document.createElement('span');
+    langTrigger.className = 'language-trigger';
+    langTrigger.innerHTML = 'English ▼';
+
+    navTools.append(langTrigger);
+
+    dropdownItems.style.display = 'none';
+
+    langTrigger.addEventListener('click', () => {
+      dropdownItems.style.display =
+        dropdownItems.style.display === 'none' ? 'block' : 'none';
     });
   }
 
