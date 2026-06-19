@@ -1,7 +1,6 @@
 .banner {
-background: #06c;
+background: rgb(0 204 34);
 color: #fff;
-border-radius: 12px;
 overflow: hidden;
 margin: 2rem auto;
 }

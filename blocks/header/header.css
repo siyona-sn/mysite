@@ -187,9 +187,11 @@ header nav .nav-sections ul > li > ul > li {
 
 @media (width >= 900px) {
   header nav .nav-sections {
-    display: block;
+    display: flex;
     visibility: visible;
     white-space: nowrap;
+    flex: 1;
+    justify-content: center;
   }
 
   header nav[aria-expanded='true'] .nav-sections {
@@ -222,11 +224,13 @@ header nav .nav-sections ul > li > ul > li {
     transform: rotate(315deg);
   }
 
-  header nav .nav-sections ul {
-    display: flex;
-    gap: 24px;
-    margin: 0;
-  }
+header nav .nav-sections ul {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* increase/decrease spacing */
+  margin: 0;
+  width: 100%;
+}
 
   header nav .nav-sections .default-content-wrapper > ul > li {
     flex: 0 1 auto;
@@ -269,4 +273,41 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+header nav .nav-tools .icon {
+margin-right: 12px;
+}
+
+.nav-dropdown-items {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  min-width: 120px;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgb(0 0 0 / 10%);
+}
+
+.nav-dropdown-items .default-content-wrapper {
+  padding: 8px 0;
+}
+
+.nav-dropdown-items p {
+  margin: 0;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.nav-dropdown-items p:hover {
+  background: #f5f5f5;
+}
+
+.language-trigger {
+  cursor: pointer;
+  margin-left: 16px;
 }
