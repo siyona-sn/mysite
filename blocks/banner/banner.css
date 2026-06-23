@@ -139,7 +139,7 @@
 }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .banner {
     height: 550px;
   }
