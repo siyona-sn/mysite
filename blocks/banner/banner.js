@@ -27,6 +27,16 @@ export default function decorate(block) {
   controls.append(prev, next);
   block.append(controls);
 
+  let current = 0;
+
+  function showSlide(index) {
+    track.style.transform = `translateX(-${index * 100}%)`;
+
+    document.querySelectorAll('.banner-dot').forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
   // Dots
   const dots = document.createElement('div');
   dots.className = 'banner-dots';
@@ -44,16 +54,6 @@ export default function decorate(block) {
   });
 
   block.append(dots);
-
-  let current = 0;
-
-  function showSlide(index) {
-    track.style.transform = `translateX(-${index * 100}%)`;
-
-    document.querySelectorAll('.banner-dot').forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-  }
 
   prev.addEventListener('click', () => {
     current = current === 0 ? slides.length - 1 : current - 1;
