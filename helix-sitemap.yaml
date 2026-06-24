@@ -1,0 +1,5 @@
+sitemaps:
+  default:
+    origin: https://main--mysite--siyona-sn.aem.live
+    source: /query-index.json
+    destination: /sitemap.xml
