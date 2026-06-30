@@ -29,6 +29,6 @@ indices:
         value: |
           attribute(el, 'content')
       category:
-        select: head > meta[name="Category"]
+        select: head > meta[name="category"]
         value: |
           attribute(el, 'content')
